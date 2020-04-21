@@ -1,0 +1,40 @@
+<html>
+    <script>
+        //constructor functions 
+        function Person(firstName, lastName, age, phone){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age= age,
+            this.phone = phone
+        }
+        let uma = new Person("uma", "chaitanya", "23", "998877445");
+        let sofie = new Person("sofie", "Jones", "20", "968877445");
+        let elena = new Person("elena", "gilbert", "24");
+        console.log(elena);
+        //using object.create
+        let user ={
+            name :"uma",
+            age : "23"
+        };
+        console.log(user);
+        let user2 = Object.create(
+            Object.prototype,{
+                name:{value: "uma", enumerable:true, writable:true, configurable:true},
+                age:{value: "23", enumerable:true, writable:true, configurable:true}
+            }
+        );
+        console.log(user2);
+        //brackets notations
+        let phones = {
+            name :"apple xs",
+            price: 58000
+        };
+        for(let p in phones){
+            console.log(p + " is " + phones[p])
+        }
+      
+
+
+
+    </script>
+</html>
