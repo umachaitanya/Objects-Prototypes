@@ -1,0 +1,36 @@
+<html>
+<script>
+    function user(fname, lname) {
+        this.fname = fname;
+        this.lname = lname;
+        Object.defineProperty(this, "fullName", {
+            get: function () {
+                return this.fname + " " + this.lname;
+            },
+            enumerable: true
+        });
+    };
+    function student(fname, lname) {
+        user.call(this, fname, lname);
+        this._enrolledCourses = [];
+        this.enroll = function (course) {
+            this._enrolledCourses.push(course);
+        };
+        this.getCourses = function() {
+            return this.fullName + " enrolled  courses are " + this._enrolledCourses.join(', ');
+        };
+    }
+    student.prototype = Object.create(user.prototype);
+    student.prototype.constructor = student;
+
+    let uma = new student("uma", "chaitanya");
+    console.log(uma);
+    console.log(uma.__proto__);
+    console.log(uma.fullName);
+    uma.enroll("node js");
+    uma.enroll("angular");
+    uma.enroll("Java script");
+    console.log(uma.getCourses());
+</script>
+
+</html>
