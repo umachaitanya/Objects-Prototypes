@@ -1,0 +1,28 @@
+<html>
+    <script>
+         function registerUser(fname, lname,age, phoneNm, email){
+             let user = {
+             firstName : fname,
+             lastName : lname,
+             age: age,
+             //isAdult: function(){ return this.age >= 18}
+             }
+            //console.log(user.isAdult());
+            console.log(Object.keys(user));
+            for ( let i in user){
+                console.log(i)
+            }
+            let details = {
+            phone : phoneNm,
+            email :email
+            }
+            function mergeUserDetails(user, details){
+                return Object.assign({},user,details)
+            }
+            let userDetails = mergeUserDetails(user, details);
+            console.log(userDetails);
+            console.log(user);
+         }
+        registerUser("uma", "chaitanya", "22", "8309330594", "umachaitanya3@gmail.com")
+    </script>
+</html>
